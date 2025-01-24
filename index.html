@@ -129,17 +129,24 @@
             height: 50px;
         }
 
-        #sistemas .nome-icone {
+        #sistemas {
             margin-top: 10px;
             color: #333;
             font-size: 14px;
             font-weight: bold;
         }
 
+        .nome-icone{
+            margin-top: 10px;
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
         .sigla_modulo {
             font-size: 18px;
             font-weight: bold;
-            color: #007bff;
+            color: #ffffff;
         }
 
         @media (max-width: 768px) {
@@ -290,8 +297,8 @@
                 <a href="/VRTL/visao/fotousuario.php" label="Alterar foto do perfil"
                    aria-label="Alterar foto do perfil">
                     <img loading="lazy"
-                         src="Imagens\fotoKevin.png"
-                         alt="Foto do perfil de ANDRÉ MOREIRA TAVARES"
+                         src="Imagens\asdfotoKevin.png"
+                         alt="Foto do perfil de KEVIN MARINHO RESENDE"
                          style="width: 100px; height: 100px; border-radius: 50%;"/>
                 </a>
                 
@@ -564,8 +571,8 @@
     </div>
 
     <div class="_vrtl_intranet_atalho">
-        <div class="row">
-            <div class="col-xs-12 col-lg-3" style="background-color: #64b2b2;">
+        <div class="row" >
+            <div class="col-xs-12 col-lg-3">
                 <a href="https://iftm.edu.br/assistenciaestudantil/editais/" target="_blank" aria-label="Assistência Estudantil">
                     <div class="if-br-card-atalho">
                         <i class="fa-solid fa-handshake-angle"></i>
@@ -605,7 +612,7 @@
     <div id="vrtl_modulos" class="tab-pane fade in active">
         <div id="sistemas" class="container-fluid">
     <a href="/ERP/MEXT/AE/visao?modulo=AE" aria-label="Acessar módulo AE - Assistência Estudantil" tabindex="20">
-        <div class="botao_modulo tradewind">
+        <div class="botao_modulo tradewind" style="background-color: #64b2b2;">
             <div>
                 <div class="img-icone">
                     <img src="/VRTL/visao/img/icones_dos_modulos/icone_logoae.png" alt="AE"
@@ -619,7 +626,7 @@
         </div>
     </a>
     <a href="?modulo=PROGRAMAAE" aria-label="Acessar módulo AE NOVO - Assistência Estudantil" tabindex="21">
-        <div class="botao_modulo tradewind">
+        <div class="botao_modulo tradewind" style="background-color: #64b2b2;">
             <div>
                 <div class="img-icone">
                     <img src="/VRTL/visao/img/icones_dos_modulos/icone_logoae (1).png" alt="AE NOVO"
@@ -633,7 +640,7 @@
         </div>
     </a>
     <a href="?modulo=BEEC2" aria-label="Acessar módulo BEEC - Banco de Estágio, Emprego e Currículo" tabindex="22">
-        <div class="botao_modulo persian_red">
+        <div class="botao_modulo persian_red" style="background-color: #ca2c2d;">
             <div>
                 <div class="img-icone">
                     <img src="/VRTL/visao/img/icones_dos_modulos/icone_icone_bc_189x70.png" alt="BEEC"
@@ -647,7 +654,7 @@
         </div>
     </a>
     <a href="?modulo=SOPHIA" aria-label="Acessar módulo BIBLIOTECA & REPOSITÓRIO - Biblioteca & Repositório Institucional" tabindex="23">
-        <div class="botao_modulo persian_red">
+        <div class="botao_modulo persian_red" style="background-color: #ca2c2d;">
             <div>
                 <div class="img-icone">
                     <img src="/VRTL/visao/img/icones_dos_modulos/biblioteca_repositorio_institucional.svg" alt="BIBLIOTECA & REPOSITÓRIO"
@@ -661,7 +668,7 @@
         </div>
     </a>
     <a href="?modulo=DV2" aria-label="Acessar módulo DISCO VIRTUAL - Disco Virtual Acadêmico" tabindex="24">
-        <div class="botao_modulo persian_red">
+        <div class="botao_modulo persian_red" style="background-color: #ca2c2d;">
             <div>
                 <div class="img-icone">
                     <img src="/VRTL/visao/img/icones_dos_modulos/icone_dv2.png" alt="DISCO VIRTUAL"
@@ -675,7 +682,7 @@
         </div>
     </a>
     <a href="?modulo=MADDOCS" aria-label="Acessar módulo DOCS - Documentos Oficiais" tabindex="25">
-        <div class="botao_modulo tangerine">
+        <div class="botao_modulo tangerine" style="background-color: #e28400;">
             <div>
                 <div class="img-icone">
                     <img src="/VRTL/visao/img/icones_dos_modulos/mad_docs.png" alt="DOCS"
@@ -689,7 +696,7 @@
         </div>
     </a>
     <a href="?modulo=ALUNO_NOVO" aria-label="Acessar módulo ESTUDANTE - Estudante" tabindex="26">
-        <div class="botao_modulo persian_red">
+        <div class="botao_modulo persian_red" style="background-color: #ca2c2d;">
             <div>
                 <div class="img-icone">
                     <img src="/VRTL/visao/img/icones_dos_modulos/aluno (1).png" alt="ESTUDANTE"
@@ -703,7 +710,7 @@
         </div>
     </a>
     <a href="/ERP/MPES/EVENTOS/visao?modulo=MPESEVENTO" aria-label="Acessar módulo EVENTOS - Eventos" tabindex="27">
-        <div class="botao_modulo tradewind">
+        <div class="botao_modulo tradewind" style="background-color: #64b2b2;">
             <div>
                 <div class="img-icone">
                     <img src="/VRTL/visao/img/icones_dos_modulos/icone_icone_eventos.png" alt="EVENTOS"
@@ -717,7 +724,7 @@
         </div>
     </a>
     <a href="?modulo=GSS" aria-label="Acessar módulo GSS - Gestão de Serviços e Solicitações" tabindex="28">
-        <div class="botao_modulo astral">
+        <div class="botao_modulo astral" style="background-color: #2e7ea3;">
             <div>
                 <div class="img-icone">
                     <img src="/VRTL/visao/img/icones_dos_modulos/icone_gss.png" alt="GSS"
@@ -731,7 +738,7 @@
         </div>
     </a>
     <a href="?modulo=MURALRECA2" aria-label="Acessar módulo MURAL - Mural de Recados" tabindex="29">
-        <div class="botao_modulo persian_red">
+        <div class="botao_modulo persian_red" style="background-color: #ca2c2d;">
             <div>
                 <div class="img-icone">
                     <img src="/VRTL/visao/img/icones_dos_modulos/mural-de-recados-2.png" alt="MURAL"
@@ -745,7 +752,7 @@
         </div>
     </a>
     <a href="?modulo=NOT" aria-label="Acessar módulo NOT - Notificações" tabindex="30">
-        <div class="botao_modulo astral">
+        <div class="botao_modulo astral" style="background-color: #2e7ea3;">
             <div>
                 <div class="img-icone">
                     <img src="/VRTL/visao/img/icones_dos_modulos/notificacoes.png" alt="NOT"
@@ -759,7 +766,7 @@
         </div>
     </a>
     <a href="?modulo=QIEST" aria-label="Acessar módulo QI - Quadro Informativo" tabindex="31">
-        <div class="botao_modulo persian_red">
+        <div class="botao_modulo persian_red" style="background-color: #ca2c2d;">
             <div>
                 <div class="img-icone">
                     <img src="/VRTL/visao/img/icones_dos_modulos/icone_qi.png" alt="QI"
@@ -773,7 +780,7 @@
         </div>
     </a>
     <a href="?modulo=VOT" aria-label="Acessar módulo VOT - Votação Helios" tabindex="32">
-        <div class="botao_modulo cascade">
+        <div class="botao_modulo cascade" style="background-color: #ca2c2d;">
             <div>
                 <div class="img-icone">
                     <img src="/VRTL/visao/img/icones_dos_modulos/icone_vot.png" alt="VOT"

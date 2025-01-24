@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <title>VirtualIF</title>
+
+    <!-- Style -->
+     <!-- Favicon -->
+    <link rel="shortcut icon" href="Imagens\logoSite.png" type="image/x-icon">
+
+    <!-- Normalize -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css" type="text/css"/>
+
+    <!-- jQuery UI -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" type="text/css"/>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" type="text/css"/>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" type="text/css"/>
+
+    <!-- Custom CSS (Adapte conforme necessário) -->
+     <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/iftm-custom-bootstrap.css" type="text/css"/>
+    <style>
+        /* Custom Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+
+        #cabecalho {
+            background-color: #2f9e41;
+            color: white;
+            padding: 10px 0;
+        }
+
+        #cabecalho_titulo a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .icone_toolbar {
+            display: inline-block;
+            color: white;
+            margin: 0 10px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .dropdown-menu {
+            width: 300px;
+        }
+
+        .card {
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .card .card-body {
+            text-align: center;
+            padding: 15px;
+        }
+
+        .card i {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        .outstanding-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .outstanding-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        ._vrtl_intranet_atalho .if-br-card-atalho {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+        }
+
+        ._vrtl_intranet_atalho .if-br-card-atalho:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        ._vrtl_intranet_atalho i {
+            color: #007bff;
+        }
+
+        ._vrtl_intranet_atalho .titulo {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            display: block;
+            margin-top: 10px;
+        }
+
+        #sistemas .botao_modulo {
+            background-color: #eaf4fc;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+            padding: 15px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        #sistemas .botao_modulo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        #sistemas .img-icone img {
+            width: 50px;
+            height: 50px;
+        }
+
+        #sistemas .nome-icone {
+            margin-top: 10px;
+            color: #333;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .sigla_modulo {
+            font-size: 18px;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        @media (max-width: 768px) {
+            ._vrtl_intranet_atalho .row > div,
+            #sistemas .botao_modulo {
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+    <!-- <link rel="stylesheet" href="css/iftm-custom-bootstrap.css" type="text/css"/> -->
+    <link rel="stylesheet" href="css/home.css" type="text/css"/>
+    <link rel="stylesheet" href="css/home-cores-modulos.css" type="text/css"/>
+
+
+</head>
+<body>
+<div id="globalSessionTimeOutMaxLifeTimeAlert" class="alert alert-warning text-center collapse"
+     data-session-timout="1800" role="alert">
+    <strong>Atenção! </strong> Seu acesso irá expirar em instantes. <a href="#" class="alert-link">Clique aqui para
+    renovar o acesso</a>.
+</div>
+
+<header id="cabecalho" class="container-fluid ">
+    <div id="cabecalho_titulo" class="row">
+        <div id="coluna_menu_toolbar" class="col-xs-3 col-md-5">
+            <!-- Toolbar -->
+            <div id="botoes_toolbar">
+
+
+                <a href="#VRTL_MENU_AC" class="icone_toolbar hidden" id="icone_menu" alt="Menu"
+                   title="Menu" aria-label="Menu"></a>
+
+
+                <!--                <div class="icone_toolbar hidden" id="icone_menu" alt="Menu" title="Menu"></div>-->
+
+                <div class="hidden visible-md-inline visible-lg-inline">
+                    <a href="https://accounts.google.com/ServiceLogin?service=mail&passive=true&hd=estudante.iftm.edu.br&Email=andre.tavares@estudante.iftm.edu.br&continue=https://mail.google.com/mail/u/andre.tavares@estudante.iftm.edu.br/"
+                       target="_blank"
+                       label="Ir para e-mail andre.tavares@estudante.iftm.edu.br"
+                       aria-label="Ir para e-mail andre.tavares@estudante.iftm.edu.br"
+                       class="icone_toolbar icone_email">
+                    </a>
+                    <a href="https://biblioteca.iftm.edu.br/" target="_biblioteca" title="Atalho para biblioteca"
+                       aria-label="Atalho para biblioteca" class="icone_toolbar icone_biblioteca">
+                    </a>
+                    <!--<a href="/ERP/MAC/CRA/controlador/ctrl_carteirinha_estudantil/relatorioCarteirinhaEstudante3.php?carteira_id=" target="_blank"><div class="icone_toolbar icone_carteirinha_estudante" alt="Carteira de Estudante" data-toggle="tooltip" title="Acesse aqui sua Carteirinha de Estudante" data-placement="bottom" data-alerta-ao-exibir="0"></div></a>-->
+                    <a href="/VRTL/?menu=2715" class="icone_toolbar icone_carteirinha_estudante"
+                       alt="Carteira de Estudante"
+                       data-toggle="tooltip" title="Acesse aqui sua Carteirinha de Estudante"
+                       aria-label="Acesse aqui sua Carteirinha de Estudante"
+                       data-placement="bottom" data-alerta-ao-exibir="0">
+                    </a>
+                    <a href="/VRTL/usuario" class="icone_toolbar icone_cadeado" alt="Alterar senha"
+                       title="Alterar senha" aria-label="Alteração da senha do seu usuário">
+                    </a>
+
+                    <div class="dropdownAlertas dropdown">
+                        <div class="icone_toolbar icone_alerta dropdown-toggle" alt="Notificações" title="Notificações"
+                             aria-haspopup="true" aria-expanded="true"></div>
+                        <span class="contadorNotificacoesNaoLidas badge"></span>
+
+                        <div class="dropdown-menu">
+                            <div class="tituloDropDown">
+                                <span class="text-muted">Notificações</span>
+                                <span class="btnFecharNotificacoes glyphicon glyphicon-remove pull-right text-muted"
+                                      role="button"></span>
+                            </div>
+                            <table class="notificacoesNaoLidas table table-striped table-hover table-condensed"
+                                   aria-labelledby="icone_alerta">
+                                <tr>
+                                    <th class="tituloSessao">Não lidas</th>
+                                    <th class="tituloSessao" colspan="2">Data envio</th>
+                                </tr>
+                                <tbody id="resultadoNotificacoesNaoLidas">
+                                </tbody>
+                                <tbody id="modeloNotificacoesNaoLidas" class="hide">
+                                <tr data-id-notificacao="#id_notificacao#" class="link_notificacao" data-href="#url#">
+                                    <td class="colTextoNotificacao">
+                                        <div class="tituloNotificacao">#titulo_notificacao#</div>
+                                        <div class="conteudoNotificacao">#texto_notificacao#</div>
+                                    </td>
+                                    <td class="colDataNotificacao">#data_hora#</td>
+                                    <td class="colFecharNotificacao">
+                                        <span class="btnLerNotificacao glyphicon glyphicon-remove"
+                                              title="Marcar como lida" aria-hidden="true"></span>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <table class="notificacoesLidas table table-striped table-hover table-condensed">
+                                <tr>
+                                    <th class="tituloSessao">Lidas</th>
+                                    <th class="tituloSessao" colspan="2">Data leitura</th>
+                                </tr>
+                                <tbody id="resultadoNotificacoesLidas">
+                                </tbody>
+                                <tbody id="modeloNotificacoesLidas" class="hide">
+                                <tr data-id-notificacao="#id_notificacao#" class="link_notificacao" data-href="#url#">
+                                    <td class="colTextoNotificacao">
+                                        <div class="tituloNotificacao">#titulo_notificacao#</div>
+                                        <div class="conteudoNotificacao">#texto_notificacao#</div>
+                                    </td>
+                                    <td class="colDataNotificacao">#data_visualizacao#</td>
+                                    <td class="colFecharNotificacao">
+                                        <span class="btnArquivarNotificacao glyphicon glyphicon-remove"
+                                              title="Arquivar notificação" aria-hidden="true"></span>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <table class="linkVerTodasNotificacoes table table-striped table-hover table-condensed">
+                                <tr>
+                                    <th class="tituloSessao" colspan="2"><a href="?menu=2156">Visualizar
+                                        todas</a></th>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="coluna_logo_virtualif" class="col-xs-6 col-md-2">
+            <a href="https://virtualif.iftm.edu.br:443/VRTL/" label="Atalho para página principal" aria-label="Atalho para página principal">
+                <!-- Titulo central -->
+                <img class="logo_virtualif hidden visible-xs-block"
+                     src="/VRTL/visao/img/identidade_visual/logotipo-virtualif-marca-branco.svg" alt="VIRTUAL IF"
+                     title="Virtual IF"/>
+                <img class="logo_virtualif hidden visible-sm-block visible-md-block visible-lg-block"
+                     src="Imagens\logoVirtualIf.png"
+                     alt="VIRTUAL IF"
+                     title="Virtual IF"/>
+            </a>
+        </div>
+
+        <div id="coluna_area_usuario" class="col-xs-3 col-md-5">
+            <!-- Area do usuário -->
+
+
+            <div id="sistema_sair_toolbar" class="hidden visible-md-block visible-lg-block">
+                <a href="/VRTL/controlador/ctrl_login/logout.php" label="Fazer logout do VIRTUALIF"
+                   aria-label="Fazer logout do VIRTUALIF">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </a>
+            </div>
+
+            <div id="usuario_foto">
+                <a href="/VRTL/visao/fotousuario.php" label="Alterar foto do perfil"
+                   aria-label="Alterar foto do perfil">
+                    <img loading="lazy"
+                         src="Imagens\fotoKevin.png"
+                         alt="Foto do perfil de ANDRÉ MOREIRA TAVARES"
+                         style="width: 100px; height: 100px; border-radius: 50%;"/>
+                </a>
+                
+            </div>
+
+
+            <div id="usuario_texto" class="hidden visible-md-block visible-lg-block">
+                <div id="usuario_saudacao">
+                    Bem vindo
+                    </div>
+                <div id="usuario_nome">KEVIN MARINHO RESENDE</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="botoes_toolbar_mobile" class="row hidden-md hidden-lg">
+        <div id="coluna_botoes_toolbar" class="col-xs-12 text-center">
+            <div class="container">
+                <a href="https://accounts.google.com/ServiceLogin?service=mail&passive=true&hd=estudante.iftm.edu.br&Email=andre.tavares@estudante.iftm.edu.br&continue=https://mail.google.com/mail/u/andre.tavares@estudante.iftm.edu.br/"
+                   target="_blank">
+                    <div class="icone_toolbar icone_email" alt="Email" title="Email"></div>
+                </a>
+                <a href="https://biblioteca.iftm.edu.br/" target="_blank">
+                    <div class="icone_toolbar icone_biblioteca" alt="Biblioteca" title="Biblioteca"></div>
+                </a>
+                <a href="/ERP/MAC/CRA/controlador/ctrl_carteirinha_estudantil/relatorioCarteirinhaEstudante3.php?carteira_id="
+                   target="_blank">
+                    <div class="icone_toolbar icone_carteirinha_estudante" alt="Carteira de Estudante"
+                         data-toggle="tooltip" title="Acesse aqui sua Carteirinha de Estudante" data-placement="bottom"
+                         data-alerta-ao-exibir="0"></div>
+                </a>
+                <a href="/VRTL/usuario">
+                    <div class="icone_toolbar icone_cadeado" alt="Alterar senha" title="Alterar senha"></div>
+                </a>
+
+                <div class="dropdownAlertas dropdown">
+                    <div class="icone_toolbar icone_alerta dropdown-toggle" alt="Notificações" title="Notificações"
+                         aria-haspopup="true" aria-expanded="true"></div>
+                    <span class="contadorNotificacoesNaoLidas badge"></span>
+
+                    <div class="dropdown-menu">
+                        <div class="tituloDropDown">
+                            <span class="text-muted">Notificações</span>
+                            <span class="btnFecharNotificacoes glyphicon glyphicon-remove pull-right text-muted"
+                                  role="button"></span>
+                        </div>
+                        <table class="notificacoesNaoLidas table table-striped table-hover table-condensed"
+                               aria-labelledby="icone_alerta">
+                            <tr>
+                                <th class="tituloSessao" colspan="3">Não lidas</th>
+                            </tr>
+                            <tbody id="resultadoNotificacoesNaoLidasMobile">
+                            </tbody>
+                        </table>
+                        <table class="notificacoesLidas table table-striped table-hover table-condensed">
+                            <tr>
+                                <th class="tituloSessao" colspan="3">Lidas</th>
+                            </tr>
+                            <tbody id="resultadoNotificacoesLidasMobile">
+                            </tbody>
+                        </table>
+                        <table class="linkVerTodasNotificacoes table table-striped table-hover table-condensed">
+                            <tr>
+                                <th class="tituloSessao" colspan="2">Visualizar todas</th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+<div style="display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+    margin-top: 10px">
+
+    <a href="/CPA" target="_blank">
+        <img class="img-responsive" src="Imagens\avaliacaoInstitucional.png" alt="Avaliação Institucional 2023">
+    </a>
+
+</div>
+
+
+<ul class="nav nav-tabs" style="padding-top: 5pt" role="list">
+    <li class="">
+        <a data-toggle="tab" href="#vrtl_intranet" aria-label="Destaques do VIRTUALIF">Destaques</a>
+    </li>
+    <li class="active">
+        <a data-toggle="tab" href="#vrtl_modulos" aria-label="Módulos do VIRTUALIF">Módulos</a>
+    </li>
+</ul>
+<div class="tab-content">
+    <div id="vrtl_intranet" class="tab-pane fade ">
+        <link rel="stylesheet" href="https://iftm.edu.br/fonts/rawline/css/rawline.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+<link rel="stylesheet" href="/VRTL/visao/css/intranet.css?1737749925"/>
+<div class="container container-intranet">
+    <div id="banner" class="row">
+    <div class="col-12">
+        <div id="carousel-banner" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-banner" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-banner" data-slide-to="1" class=""></li>
+                </ol>
+
+            <!-- Wrapper for slides -->
+            <!--            style="height: 450px; max-height: 450px" hhhh-->
+            <div class="carousel-inner _vrtl_carrousel" role="listbox">
+                <div class="item active">
+                    <a href="https://virtualif.iftm.edu.br/CPA2.0/controlador/ctrl_cpa/listarCPA.php" target="_blank">
+                        <img loading="lazy" class="center-block _vrtl_img_carousel"
+                             src="/VRTL/visao/loader_banner.php?zpd=Gciy__AM5ATMSCRJ5881EqN"
+                             alt="Pare pra pensar sobre o IFTM - Avaliação Institucional 2024 - De 22 de janeiro a 21 de fevereiro - Virtual IF - Clique para responder">
+                    </a>
+                    <!---->
+                    <!--     style="height: 450px; object-fit: cover"                         class="center-block" -->
+                </div>
+                <div class="item ">
+                    <a href="https://iftm.edu.br/editais/chamadas-publicas/chamada-interna/20241217/proposta-de-design-para-mascote-dos-jogos-dos-institutos-federais-etapa-institucional-jif-iftm-2025-ituiutaba-mg/" target="_blank">
+                        <img loading="lazy" class="center-block _vrtl_img_carousel"
+                             src="/VRTL/visao/loader_banner.php?zpd=Ycny__QM5ATMSCRJ3191LqN"
+                             alt="Proposta de design para a escolha da mascote do JIF 2025">
+                    </a>
+                    <!---->
+                    <!--     style="height: 450px; object-fit: cover"                         class="center-block" -->
+                </div>
+                </div>
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-banner" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#carousel-banner" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+    <!--    <div class="outstanding-header">-->
+    <!--        <h2 class="outstanding-title">Últimas notícias</h2>-->
+    <!--    </div>-->
+
+    <div class="cabecalho-linha pb-4">
+        <div class="outstanding-header">
+            <h2 class="outstanding-title">Últimas
+                notícias</h2>
+        </div>
+    </div>
+
+
+    <div class="container">
+    <div class="row _vrtl_noticias-destaque">
+        <div class="col-lg-4">
+            <div class="vrtl_if-br-card">
+                <div class="_vrtl_noticia-content">
+                    <a class="_vrtl_link-noticia" href="/noticias/2025/01/24/iftm-da-boas-vindas-a-46-novos-servidores-em-cerimonias-de-posse-coletiva" target="_blank">
+                        <img loading="lazy" src="/VRTL/controlador2/load.php?src=f502ce4a4b7a6c8cad689b7744fb9ea7&tipo=noticia"
+                             alt="IFTM dá boas-vindas a 46 novos servidores em cerimônias de posse coletiva">
+                    </a>
+                    <div class="_vrtl_card-footer">
+                        <p>Concurso Público</p>
+                        <span>IFTM dá boas-vindas a 46 novos servidores em cerimônias de posse coletiva</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="vrtl_if-br-card">
+                <div class="_vrtl_noticia-content">
+                    <a class="_vrtl_link-noticia" href="/noticias/2025/01/24/iftm-e-receita-federal-lancam-programa-para-promover-impacto-social-e-ambiental" target="_blank">
+                        <img loading="lazy" src="/VRTL/controlador2/load.php?src=8e2546a33cb26be8ed1aabf839d02232&tipo=noticia"
+                             alt="IFTM e Receita Federal lançam programa para promover impacto social e ambiental">
+                    </a>
+                    <div class="_vrtl_card-footer">
+                        <p>EXTENSÃO</p>
+                        <span>IFTM e Receita Federal lançam programa para promover impacto social e ambiental</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="vrtl_if-br-card">
+                <div class="_vrtl_noticia-content">
+                    <a class="_vrtl_link-noticia" href="/noticias/2025/01/16/novos-servidores-do-iftm-tomam-posse-em-cargo-publico-nesta-sexta-feira-17" target="_blank">
+                        <img loading="lazy" src="/VRTL/controlador2/load.php?src=7e3f577946993e8c42ad1a1e9e9e2845&tipo=noticia"
+                             alt="Novos servidores do IFTM tomam posse em cargo público nesta sexta-feira (17)">
+                    </a>
+                    <div class="_vrtl_card-footer">
+                        <p>Concurso Público</p>
+                        <span>Novos servidores do IFTM tomam posse em cargo público nesta sexta-feira (17)</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        </div>
+
+    <div class="row _vrtl_intranet_margem_topo">
+        <div class="col-lg-4">
+            <div class="vrtl_if-br-card _vrtl_br-card">
+                <a href="/noticias/2025/01/15/estudantes-e-professores-do-iftm-participam-da-operacao-sul-de-minas-do-projeto-rondon" target="_blank">
+                    <div class="_vrtl_card-footer">
+                        <div class="chapeu-noticia">EXTENSÃO</div>
+                        <div class="titulo-noticia">
+                            Estudantes e Professores do IFTM participam da "Operação Sul de Minas" do Projeto Rondon
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="vrtl_if-br-card _vrtl_br-card">
+                <a href="/noticias/2025/01/16/iftm-oferta-261-vagas-no-sisu-2025" target="_blank">
+                    <div class="_vrtl_card-footer">
+                        <div class="chapeu-noticia">GRADUAÇÃO</div>
+                        <div class="titulo-noticia">
+                            IFTM oferta 261 vagas no Sisu 2025
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="vrtl_if-br-card _vrtl_br-card">
+                <a href="/noticias/2025/01/06/seguem-abertas-inscricoes-para-vagas-remanescentes-em-diversos-cursos-tecnicos-e-de-graduacao-do-iftm" target="_blank">
+                    <div class="_vrtl_card-footer">
+                        <div class="chapeu-noticia">Processo Seletivo 2025/1</div>
+                        <div class="titulo-noticia">
+                            Seguem abertas inscrições para vagas remanescentes em diversos cursos técnicos e de graduação do IFTM
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        </div>
+</div>
+
+
+
+
+
+<div class="row _vrtl_intranet_margem_topo">
+    <div class="col-12 text-center">
+        <a href="/intranet" class="btn btn-default btn-lg" role="button" target="_blank"> Mais notícias </a>
+    </div>
+</div>
+
+
+
+
+
+
+    <div class="cabecalho-linha pb-4">
+        <div class="outstanding-header">
+            <h2 class="outstanding-title">Informações para estudantes</h2>
+        </div>
+    </div>
+
+    <div class="_vrtl_intranet_atalho">
+        <div class="row">
+            <div class="col-xs-12 col-lg-3" style="background-color: #64b2b2;">
+                <a href="https://iftm.edu.br/assistenciaestudantil/editais/" target="_blank" aria-label="Assistência Estudantil">
+                    <div class="if-br-card-atalho">
+                        <i class="fa-solid fa-handshake-angle"></i>
+                        <span class="titulo">Assistência Estudantil</span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-12 col-lg-3">
+                <a href="https://iftm.edu.br/bolsa-apoio-financeiro/" target="_blank" aria-label="Bolsa acadêmica e apoio financeiro">
+                    <div class="if-br-card-atalho">
+                        <i class="fa-solid fa-wallet"></i>
+                        <span class="titulo">Bolsa acadêmica e apoio financeiro</span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-12 col-lg-3">
+                <a href="https://iftm.edu.br/ensino/manuais/20230216/guia-de-estudantes-iftm/" target="_blank" aria-label="Guia de estudantes">
+                    <div class="if-br-card-atalho">
+                        <i class="fa-solid fa-compass"></i>
+                        <span class="titulo">Guia de estudantes</span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-12 col-lg-3">
+                <a href="https://iftm.edu.br/repositorio/" target="_blank" aria-label="Repositório Institucional">
+                    <div class="if-br-card-atalho">
+                        <i class="fa-solid fa-boxes-stacked"></i>
+                        <span class="titulo">Repositório Institucional</span>
+                    </div>
+                </a>
+            </div>
+            </div>
+    </div>
+
+    </div>
+    </div>
+    <div id="vrtl_modulos" class="tab-pane fade in active">
+        <div id="sistemas" class="container-fluid">
+    <a href="/ERP/MEXT/AE/visao?modulo=AE" aria-label="Acessar módulo AE - Assistência Estudantil" tabindex="20">
+        <div class="botao_modulo tradewind">
+            <div>
+                <div class="img-icone">
+                    <img src="/VRTL/visao/img/icones_dos_modulos/icone_logoae.png" alt="AE"
+                         onerror="src='/VRTL/visao/img/icones_dos_modulos/icone_vazio.png';onerror=''">
+                </div>
+                <div class="nome-icone">
+                    <div class="sigla_modulo">AE</div>
+                    <span>Assistência Estudantil</span>
+                </div>
+            </div>
+        </div>
+    </a>
+    <a href="?modulo=PROGRAMAAE" aria-label="Acessar módulo AE NOVO - Assistência Estudantil" tabindex="21">
+        <div class="botao_modulo tradewind">
+            <div>
+                <div class="img-icone">
+                    <img src="/VRTL/visao/img/icones_dos_modulos/icone_logoae (1).png" alt="AE NOVO"
+                         onerror="src='/VRTL/visao/img/icones_dos_modulos/icone_vazio.png';onerror=''">
+                </div>
+                <div class="nome-icone">
+                    <div class="sigla_modulo">AE NOVO</div>
+                    <span>Assistência Estudantil</span>
+                </div>
+            </div>
+        </div>
+    </a>
+    <a href="?modulo=BEEC2" aria-label="Acessar módulo BEEC - Banco de Estágio, Emprego e Currículo" tabindex="22">
+        <div class="botao_modulo persian_red">
+            <div>
+                <div class="img-icone">
+                    <img src="/VRTL/visao/img/icones_dos_modulos/icone_icone_bc_189x70.png" alt="BEEC"
+                         onerror="src='/VRTL/visao/img/icones_dos_modulos/icone_vazio.png';onerror=''">
+                </div>
+                <div class="nome-icone">
+                    <div class="sigla_modulo">BEEC</div>
+                    <span>Banco de Estágio, Emprego e Currículo</span>
+                </div>
+            </div>
+        </div>
+    </a>
+    <a href="?modulo=SOPHIA" aria-label="Acessar módulo BIBLIOTECA & REPOSITÓRIO - Biblioteca & Repositório Institucional" tabindex="23">
+        <div class="botao_modulo persian_red">
+            <div>
+                <div class="img-icone">
+                    <img src="/VRTL/visao/img/icones_dos_modulos/biblioteca_repositorio_institucional.svg" alt="BIBLIOTECA & REPOSITÓRIO"
+                         onerror="src='/VRTL/visao/img/icones_dos_modulos/icone_vazio.png';onerror=''">
+                </div>
+                <div class="nome-icone">
+                    <div class="sigla_modulo">BIBLIOTECA & REPOSITÓRIO</div>
+                    <span>Biblioteca & Repositório Institucional</span>
+                </div>
+            </div>
+        </div>
+    </a>
+    <a href="?modulo=DV2" aria-label="Acessar módulo DISCO VIRTUAL - Disco Virtual Acadêmico" tabindex="24">
+        <div class="botao_modulo persian_red">
+            <div>
+                <div class="img-icone">
+                    <img src="/VRTL/visao/img/icones_dos_modulos/icone_dv2.png" alt="DISCO VIRTUAL"
+                         onerror="src='/VRTL/visao/img/icones_dos_modulos/icone_vazio.png';onerror=''">
+                </div>
+                <div class="nome-icone">
+                    <div class="sigla_modulo">DISCO VIRTUAL</div>
+                    <span>Disco Virtual Acadêmico</span>
+                </div>
+            </div>
+        </div>
+    </a>
+    <a href="?modulo=MADDOCS" aria-label="Acessar módulo DOCS - Documentos Oficiais" tabindex="25">
+        <div class="botao_modulo tangerine">
+            <div>
+                <div class="img-icone">
+                    <img src="/VRTL/visao/img/icones_dos_modulos/mad_docs.png" alt="DOCS"
+                         onerror="src='/VRTL/visao/img/icones_dos_modulos/icone_vazio.png';onerror=''">
+                </div>
+                <div class="nome-icone">
+                    <div class="sigla_modulo">DOCS</div>
+                    <span>Documentos Oficiais</span>
+                </div>
+            </div>
+        </div>
+    </a>
+    <a href="?modulo=ALUNO_NOVO" aria-label="Acessar módulo ESTUDANTE - Estudante" tabindex="26">
+        <div class="botao_modulo persian_red">
+            <div>
+                <div class="img-icone">
+                    <img src="/VRTL/visao/img/icones_dos_modulos/aluno (1).png" alt="ESTUDANTE"
+                         onerror="src='/VRTL/visao/img/icones_dos_modulos/icone_vazio.png';onerror=''">
+                </div>
+                <div class="nome-icone">
+                    <div class="sigla_modulo">ESTUDANTE</div>
+                    <span>Estudante</span>
+                </div>
+            </div>
+        </div>
+    </a>
+    <a href="/ERP/MPES/EVENTOS/visao?modulo=MPESEVENTO" aria-label="Acessar módulo EVENTOS - Eventos" tabindex="27">
+        <div class="botao_modulo tradewind">
+            <div>
+                <div class="img-icone">
+                    <img src="/VRTL/visao/img/icones_dos_modulos/icone_icone_eventos.png" alt="EVENTOS"
+                         onerror="src='/VRTL/visao/img/icones_dos_modulos/icone_vazio.png';onerror=''">
+                </div>
+                <div class="nome-icone">
+                    <div class="sigla_modulo">EVENTOS</div>
+                    <span>Eventos</span>
+                </div>
+            </div>
+        </div>
+    </a>
+    <a href="?modulo=GSS" aria-label="Acessar módulo GSS - Gestão de Serviços e Solicitações" tabindex="28">
+        <div class="botao_modulo astral">
+            <div>
+                <div class="img-icone">
+                    <img src="/VRTL/visao/img/icones_dos_modulos/icone_gss.png" alt="GSS"
+                         onerror="src='/VRTL/visao/img/icones_dos_modulos/icone_vazio.png';onerror=''">
+                </div>
+                <div class="nome-icone">
+                    <div class="sigla_modulo">GSS</div>
+                    <span>Gestão de Serviços e Solicitações</span>
+                </div>
+            </div>
+        </div>
+    </a>
+    <a href="?modulo=MURALRECA2" aria-label="Acessar módulo MURAL - Mural de Recados" tabindex="29">
+        <div class="botao_modulo persian_red">
+            <div>
+                <div class="img-icone">
+                    <img src="/VRTL/visao/img/icones_dos_modulos/mural-de-recados-2.png" alt="MURAL"
+                         onerror="src='/VRTL/visao/img/icones_dos_modulos/icone_vazio.png';onerror=''">
+                </div>
+                <div class="nome-icone">
+                    <div class="sigla_modulo">MURAL</div>
+                    <span>Mural de Recados</span>
+                </div>
+            </div>
+        </div>
+    </a>
+    <a href="?modulo=NOT" aria-label="Acessar módulo NOT - Notificações" tabindex="30">
+        <div class="botao_modulo astral">
+            <div>
+                <div class="img-icone">
+                    <img src="/VRTL/visao/img/icones_dos_modulos/notificacoes.png" alt="NOT"
+                         onerror="src='/VRTL/visao/img/icones_dos_modulos/icone_vazio.png';onerror=''">
+                </div>
+                <div class="nome-icone">
+                    <div class="sigla_modulo">NOT</div>
+                    <span>Notificações</span>
+                </div>
+            </div>
+        </div>
+    </a>
+    <a href="?modulo=QIEST" aria-label="Acessar módulo QI - Quadro Informativo" tabindex="31">
+        <div class="botao_modulo persian_red">
+            <div>
+                <div class="img-icone">
+                    <img src="/VRTL/visao/img/icones_dos_modulos/icone_qi.png" alt="QI"
+                         onerror="src='/VRTL/visao/img/icones_dos_modulos/icone_vazio.png';onerror=''">
+                </div>
+                <div class="nome-icone">
+                    <div class="sigla_modulo">QI</div>
+                    <span>Quadro Informativo</span>
+                </div>
+            </div>
+        </div>
+    </a>
+    <a href="?modulo=VOT" aria-label="Acessar módulo VOT - Votação Helios" tabindex="32">
+        <div class="botao_modulo cascade">
+            <div>
+                <div class="img-icone">
+                    <img src="/VRTL/visao/img/icones_dos_modulos/icone_vot.png" alt="VOT"
+                         onerror="src='/VRTL/visao/img/icones_dos_modulos/icone_vazio.png';onerror=''">
+                </div>
+                <div class="nome-icone">
+                    <div class="sigla_modulo">VOT</div>
+                    <span>Votação Helios</span>
+                </div>
+            </div>
+        </div>
+    </a>
+    </div>
+    </div>
+</div>
+
+
+<div class="loadingAjax">
+</div>
+
+
+<!-- Bloco do widget Vlibras para interpretação dos textos em libras -->
+<div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+    </div>
+</div>
+<!-- FAZENDO UM TESTE PARA VERIFICAR SE É O VLIBRAS QUE CAUSA LENTIDAO PRA CARREGAR OUTROS JS E IMG
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+</script>
+-->
+<!-- Bloco do widget Vlibras para interpretação dos textos em libras -->
+
+<footer id="rodape" class="container-fluid">
+    <div class="row hidden visible-xs-block visible-sm-block">
+        <a href="/VRTL/controlador/ctrl_login/logout.php" title="Fazer logout do VIRTUALIF"
+           aria-label="Fazer logout do VIRTUALIF">
+            <div id="sistema_sair_rodape" class="col-sm-12">
+                <span>Sair</span>
+            </div>
+        </a>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 rodape-esquerda">
+            <a href="http://iftm.edu.br/" target="_blank"
+               title="Instituto Federal de Educação, Ciência e Tecnologia do Triângulo Mineiro"
+               aria-label="Instituto Federal de Educação, Ciência e Tecnologia do Triângulo Mineiro">
+                <img class="logotipo-rodape" src="/VRTL/visao/img/identidade_visual/logotipo-iftm-completo.png"
+                     alt="Logotipo do IFTM"/>
+            </a>
+        </div>
+        <div class="col-sm-6 rodape-direita">
+            <!--            <img class="logotipo-rodape" src="/VRTL/visao/img/identidade_visual/logotipo-dtic.png"-->
+            <!--                 alt="Logotipo da Diretoria de Tecnologia da Informação e Comunicação"-->
+            <!--                 title="Diretoria de Tecnologia da Informação e Comunicação"/>-->
+        </div>
+    </div>
+</footer>
+
+
+<!--jQuery-->
+<script src="/recursos/jquery/3.1.0/jquery-3.1.0.min.js"></script>
+<!-- jquery ui -->
+<script src="/recursos/jquery-ui/1.12/jquery-ui.min.js"></script>
+<!--Bootstrap-->
+<script src="/recursos/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<!--Scripts locais-->
+<script src="/recursos/simpleDialog/js/simpleDialog.min.js" type="application/javascript"></script>
+<script src="/recursos/iftm/js/Util.min.js"></script>
+<script src="/VRTL/visao/js/alertaNotificacoes.js"></script>
+<script defer src="/recursos/notificacaoPushWeb/js/compilado.js"></script>
+<script src="/VRTL/visao/js/home.js"></script>
+<!-- habilitar filtro módulos -->
+<script type="application/javascript" src="/VRTL/visao/js/menu_modulos.js"></script>
+
+<script>
+    if (typeof telaModal != undefined && typeof telaModal != "undefined") {
+        telaModal.startModal();
+    }
+</script>
+
+</body>
+</html>
